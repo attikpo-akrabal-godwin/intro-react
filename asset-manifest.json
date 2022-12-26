@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/%7Bintro-js%7D/static/js/main.cbb261ed.js",
-    "index.html": "/%7Bintro-js%7D/index.html",
-    "main.cbb261ed.js.map": "/%7Bintro-js%7D/static/js/main.cbb261ed.js.map"
+    "main.js": "/intro-js/static/js/main.cbb261ed.js",
+    "index.html": "/intro-js/index.html",
+    "main.cbb261ed.js.map": "/intro-js/static/js/main.cbb261ed.js.map"
   },
   "entrypoints": [
     "static/js/main.cbb261ed.js"
