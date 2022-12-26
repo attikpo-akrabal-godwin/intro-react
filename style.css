@@ -1,0 +1,139 @@
+body{
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.container{
+    width: 1440px;
+    margin: 0 auto;
+   
+}
+
+.header{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding: 0;
+    background-color: rgb(243 243 243);
+}
+
+.header li {
+    width: 33.33%;
+    list-style: none;
+    text-align: center;
+}
+
+.big-title{
+    text-align: center;
+    margin:0 8px;
+}
+
+.separate{
+    width: 8%;
+}
+
+.btn-a {
+    width: 90px;
+    height: 30px ;
+    background-color: rgb(46, 82, 167);
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
+.btn-b{
+    display: block;
+    margin: 0 auto;
+    font-size: 1.1em;
+    background-color: rgb(46, 82, 167);
+    border-radius: 5px;
+    border: none;
+    color: white;
+    height: 50px;
+    width: 80%;
+}
+.calendar{
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x:auto;
+    
+}
+.calendar thead th, .calendar tbody td {
+    border: 1px solid #ddd;
+   
+}
+.calendar thead th{
+    width: 12.5%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(46, 82, 167);
+    color: white;
+}
+
+.heure{
+     vertical-align: middle !important;
+     text-align: center;
+}
+
+.calendar tbody td{
+    width: 12.5%;
+    height: 160px;
+    vertical-align: unset;
+}
+
+.cours{
+    height: 24%;
+    background-color: rgb(243 243 243);
+    border: 1px solid #ddd;
+    text-align: center;
+    cursor: pointer;
+   
+}
+
+.select{
+    background-color: red;
+    color: white;
+}
+
+.form{ 
+    position: absolute;
+    width: 30%;
+    height: 340px;
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    top: 30%;
+    left: 35%
+
+}
+
+imput-content{
+    margin: 5px auto;
+    width: 80%;
+}
+
+.input-txt{
+    display: block;
+    height: 50px;
+    width: 80%;
+    margin: 30px auto;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+    border: none;
+    font-size: 1.1em;
+}
+
+.hd{
+    display: none;
+    cursor: pointer;
+}
+
+.hd-red{
+    display: block;
+    color: red;
+    margin: 0 auto;
+    cursor: pointer;
+
+}
