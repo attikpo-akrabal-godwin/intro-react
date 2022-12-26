@@ -1,4 +1,4 @@
-import { BrowserRouter,Routes, Route , Navigate } from "react-router-dom";
+import { BrowserRouter,Routes, Route , Navigate ,HashRouter } from "react-router-dom";
 import Calendar from "./pages/Calendar";
 import Connexion from "./pages/Connexion";
 import { Provider } from "react-redux";
@@ -8,12 +8,12 @@ function App() {
   return (
     <>
       <Provider store={store}>
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route path="/" element={<Connexion/>} />
               <Route path="/calendar" element={<Calendar/>} />
             </Routes>
-          </BrowserRouter> 
+          </HashRouter> 
       </Provider>   
     </>
   );
