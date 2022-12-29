@@ -1,5 +1,4 @@
 
-
 export const handleCoursReducer = (state,action)=>{
     // action: {type:"todo/selectCours,payload:{crenauId:1,coursIndex}}
     let crenau = state.find(crenauElement=>{
@@ -7,12 +6,10 @@ export const handleCoursReducer = (state,action)=>{
     })
     if (crenau) {
         crenau.jours.forEach(elementJour => {
-                
                 let cour = elementJour.find(elementCours=>{
                     return    elementCours?.id === action.payload.coursIndex
                 })
                 if (cour) {
-
                     elementJour.map(elementCours=>{
                         if (elementCours) {
                             if (elementCours.id!==action.payload.coursIndex) {
@@ -21,17 +18,10 @@ export const handleCoursReducer = (state,action)=>{
                         }   
                     })
                     cour.isSelected = !cour.isSelected
-
                 }
-          
         });
     }
-    
 }
-
-
-
-
 
 export const collectCoursReducer = (state,action)=>{
     let cour = state.find(elementCour=>{
@@ -44,7 +34,5 @@ export const collectCoursReducer = (state,action)=>{
         state = state.filter(cour=>!((cour.jourindex===action.payload.jourindex)&&(cour.crenauId===action.payload.crenauId)))
         state.push(action.payload)
     }
-
     return state
-   
 }

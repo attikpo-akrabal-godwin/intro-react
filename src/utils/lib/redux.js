@@ -19,10 +19,6 @@ let totaleSlice = createSlice({
     }
 })
 
-
-
-
-
 let creneauxSlice = createSlice({
     name:"creneaux",
     initialState:[],
