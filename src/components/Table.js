@@ -1,4 +1,4 @@
-import { useCallback } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useSelector,useDispatch } from "react-redux"
 import { changeCreneaux,handleCours ,collectCours } from "../utils/lib/redux"
 
@@ -10,14 +10,14 @@ import { changeCreneaux,handleCours ,collectCours } from "../utils/lib/redux"
  * @returns {JSX.Element} retourne le tableaux 
  */
 let Table = ()=>{
-    
     const creneauxTab = useSelector(state=>{
-       return state.creneaux
-    })
-
+        return state.creneaux
+     })
+  
     let dispatch = useDispatch()
-    let handleOnclick= useCallback((id,crenauId,prix)=>{
-        dispatch(handleCours({crenauId:crenauId,coursIndex:id}))
+    let handleOnclick= useCallback((coursIndex,crenauId,prix)=>{
+  
+        dispatch(handleCours({crenauId,coursIndex}))
         //dispatch(collectCours({id,crenauId,prix}))
 
     }) 
@@ -49,18 +49,18 @@ let Table = ()=>{
                     </thead>
                     <tbody>
                       {
-                        creneauxTab.map(crenau=>{
+                        creneauxTab.map((crenau,ind)=>{
                           
                           return (
-                            <tr>
+                            <tr key={ind}>
                                 <td className="heure"> {crenau.horaire}</td>
                                 { crenau.jours.map((coursJour,jourindex)=>{
                                     return(
-                                        <td>
-                                            {coursJour.map(cour=>{
+                                        <td key={jourindex}>
+                                            {coursJour.map((cour,ind)=>{
                                                 let affichcours
                                                 if (cour) {
-                                                            affichcours = <div 
+                                                            affichcours = <div key={ind} 
                                                             onClick={
                                                                 ()=>{
                                                                     handleOnclick(cour.id,crenau.id,cour.prix);

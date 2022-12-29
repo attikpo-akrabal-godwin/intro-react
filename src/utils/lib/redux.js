@@ -1,28 +1,15 @@
 import { createSlice , configureStore } from "@reduxjs/toolkit";
+import { handleCoursReducer,changeCreneauxReducer, collectCoursReducer } from "./reducer";
 
 let totaleSlice = createSlice({
     name:"total",
     initialState:[],//[{id:1,crenauId:2,prix:1500}]
+     
     reducers:{
-        collectCours:(state,action)=>{
-
-            let cour = state.find(elementCour=>{
-                return ((elementCour.id===action.payload.id)&&(elementCour.crenauId===action.payload.crenauId))
-            })
-
-            if (cour) {
-                state = state.filter(cour => !((cour.id===action.payload.id)&&(cour.crenauId===action.payload.crenauId)));  
-            }else{
-                state = state.filter(cour=>!(cour.jourindex===action.payload.jourindex))
-                state.push(action.payload)
-            }
-
-            
-
-            return state
-
-            
-        }
+        /**
+         * recupere  les cous selectioner 
+         */
+        collectCours:collectCoursReducer
     }
 
 })
@@ -48,39 +35,14 @@ let creneauxSlice = createSlice({
         }
     ],
     reducers:{
-
-        handleCours:(state,action)=>{
-            // action: {type:"todo/selectCours,payload:{crenauId:1,coursIndex}}
-            let crenau = state.find(crenauElement=>{
-               return crenauElement.id === action.payload.crenauId
-            })
-            if (crenau) {
-                crenau.jours.forEach(elementJour => {
-                        
-                        let cour = elementJour.find(elementCours=>{
-                            return    elementCours?.id === action.payload.coursIndex
-                        })
-                        if (cour) {
-
-                            elementJour.map(elementCours=>{
-                                if (elementCours) {
-                                    if (elementCours.id!==action.payload.coursIndex) {
-                                        elementCours.isSelected=false
-                                    }
-                                }   
-                            })
-                            cour.isSelected = !cour.isSelected
-
-                        }
-                  
-                });
-            }
-            
-        },
-        changeCreneaux:(state,action)=>{
-            state = action.payload
-            return state
-        }
+        /**
+         * permet de changer la couleur des cours 
+         */
+        handleCours:handleCoursReducer,
+        /**
+         * permet de reinitialiser le state 
+         */
+        changeCreneaux:changeCreneauxReducer
     }
 })
 
