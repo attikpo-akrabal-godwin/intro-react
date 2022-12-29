@@ -1,0 +1,39 @@
+[
+    {
+        "_id":1,
+        "sessionMois":"DECEMBER",
+        "sessionAnnee":"2022",
+        "dateDebut":"04 déc. 2022",
+        "dateFin":"19 janv. 2023",
+        "creneaux":[
+            {
+                "id":1,
+                "horaire":"18:10",
+                "jours":[
+                    [{"prix":2500,"isSelected":false,"nom":"physique","id":1},{"prix":2500,"isSelected":false,"nom":"poo","id":2},{"prix":2500,"isSelected":false,"nom":"html","id":3},{"prix":2500,"isSelected":false,"nom":"react","id":4}],
+                    [],
+                    [{"prix":2500,"isSelected":false,"nom":"economie","id":9},{"prix":2500,"isSelected":false,"nom":"anglais","id":10}],
+                    [{"prix":2500,"isSelected":false,"nom":"sport","id":14}],
+                    [],
+                    [],
+                    []
+                ]
+            },
+            {
+                "id":2,
+                "horaire":"19:15",
+                "jours":[
+                    [],  
+                    [{"prix":2500,"isSelected":false,"nom":"electro","id":1},{"prix":2500,"isSelected":false,"nom":"python","id":2},{"prix":2500,"isSelected":false,"nom":"js","id":3},{"prix":2500,"isSelected":false,"nom":"algo","id":4}], 
+                    [{"prix":2500,"isSelected":false,"nom":"chimie","id":5},{"prix":2500,"isSelected":false,"nom":"graph","id":6}],  
+                    [], 
+                    [{"prix":2500,"isSelected":false,"nom":"economie","id":13}], 
+                    [], 
+                    [] 
+                ]
+            }
+            
+        ]
+
+    }
+]

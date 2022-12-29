@@ -30,19 +30,16 @@ export const handleCoursReducer = (state,action)=>{
 }
 
 
-export  const changeCreneauxReducer = (state,action)=>{
-    state = action.payload
-    return state
-}
+
 
 
 export const collectCoursReducer = (state,action)=>{
     let cour = state.find(elementCour=>{
-        return ((elementCour.id===action.payload.id)&&(elementCour.crenauId===action.payload.crenauId))
+        return ((elementCour.coursIndex===action.payload.coursIndex)&&(elementCour.crenauId===action.payload.crenauId))
     })
 
     if (cour) {
-        state = state.filter(cour => !((cour.id===action.payload.id)&&(cour.crenauId===action.payload.crenauId)));  
+        state = state.filter(cour => !((cour.coursIndex===action.payload.coursIndex)&&(cour.crenauId===action.payload.crenauId)));  
     }else{
         state = state.filter(cour=>!((cour.jourindex===action.payload.jourindex)&&(cour.crenauId===action.payload.crenauId)))
         state.push(action.payload)

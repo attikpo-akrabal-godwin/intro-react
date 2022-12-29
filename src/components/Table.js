@@ -15,23 +15,10 @@ let Table = ()=>{
      })
   
     let dispatch = useDispatch()
-    let handleOnclick= useCallback((coursIndex,crenauId,prix)=>{
-  
-        dispatch(handleCours({crenauId,coursIndex}))
-        //dispatch(collectCours({id,crenauId,prix}))
-
+    let handleOnclick= useCallback((coursIndex,crenauId,prix,jourindex)=>{
+        dispatch(handleCours({crenauId,coursIndex,prix,jourindex}))
     }) 
-
-    let handleCalculePrix= useCallback((id,crenauId,prix,jourindex)=>{
-        dispatch(collectCours({id,crenauId,prix,jourindex}))
-    })
-    
-    
-
-    
-    
-
-    
+  
     return (
         <>
             <table className="calendar">
@@ -63,8 +50,7 @@ let Table = ()=>{
                                                             affichcours = <div key={ind} 
                                                             onClick={
                                                                 ()=>{
-                                                                    handleOnclick(cour.id,crenau.id,cour.prix);
-                                                                    handleCalculePrix(cour.id,crenau.id,cour.prix,jourindex);
+                                                                    handleOnclick(cour.id,crenau.id,cour.prix,jourindex);
                                                                 }
                                                             } 
                                                             className={!cour.isSelected?"cours":"cours select"}><strong>{cour.nom}:</strong> {cour.prix}fcfa

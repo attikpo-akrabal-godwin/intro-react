@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import Table from "../components/Table";
 import SESSION from "../utils/data/session";
 import { useSelector,useDispatch } from "react-redux"
-import { handleCours,changeCreneaux } from "../utils/lib/redux";
+import { handleCours,fetchCours } from "../utils/lib/redux";
+
 let  firsteSession = SESSION[0]
 let Calendar = ()=>{
     let dispatch = useDispatch()
-    useEffect(()=>{
-      dispatch(changeCreneaux(firsteSession.creneaux))
+    useEffect(()=>{   
+      dispatch(fetchCours())
     })
     let navigate = useNavigate()
     const user = localStorage.getItem("user");
