@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback } from "react"
 import { useSelector,useDispatch } from "react-redux"
-import { changeCreneaux,handleCours ,collectCours } from "../utils/lib/redux"
+import { handleCours} from "../utils/lib/redux"
 
 
 
@@ -11,16 +11,22 @@ import { changeCreneaux,handleCours ,collectCours } from "../utils/lib/redux"
  */
 let Table = ()=>{
     const creneauxTab = useSelector(state=>{
-        return state.creneaux
+        return state.creneaux.creneaux
+     })
+
+    const findCourStatus = useSelector(state=>{
+        return state.status.findCourStatus
      })
   
     let dispatch = useDispatch()
     let handleOnclick= useCallback((coursIndex,crenauId,prix,jourindex)=>{
         dispatch(handleCours({crenauId,coursIndex,prix,jourindex}))
     }) 
+
+    let spiner = (<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>)
   
     return (
-        <>
+        <> 
             <table className="calendar">
                     <thead>
                         <tr>
@@ -35,8 +41,9 @@ let Table = ()=>{
                         </tr>
                     </thead>
                     <tbody>
-                      {
-                        creneauxTab.map((crenau,ind)=>{
+                        
+                      {  
+                       findCourStatus==="succeeded"?creneauxTab.map((crenau,ind)=>{
                           
                           return (
                             <tr key={ind}>
@@ -67,10 +74,30 @@ let Table = ()=>{
                             </tr>
                           ) 
 
-                        })
+                        }):""
+                      }  
+
+                      {
+                         findCourStatus==="loading"?<tr>
+                            <td>{spiner}</td>
+                            <td>{spiner}</td>
+                            <td>{spiner}</td>
+                            <td>{spiner}</td>
+                            <td>{spiner}</td>
+                            <td>{spiner}</td>
+                            <td>{spiner}</td>
+                            <td>{spiner}</td>
+                            </tr> :""
                       } 
+
+                                   
                     </tbody>
             </table>
+            {
+                findCourStatus==="failed"?
+                    <p >veillez reseillez plus tard</p>  
+                :"" 
+            }   
         </>
     )
 

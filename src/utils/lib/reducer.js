@@ -1,7 +1,7 @@
 
 export const handleCoursReducer = (state,action)=>{
     // action: {type:"todo/selectCours,payload:{crenauId:1,coursIndex}}
-    let crenau = state.find(crenauElement=>{
+    let crenau = state.creneaux.find(crenauElement=>{
        return crenauElement.id === action.payload.crenauId
     })
     if (crenau) {

@@ -5,7 +5,7 @@ import SESSION from "../utils/data/session";
 import { useSelector,useDispatch } from "react-redux"
 import { handleCours,fetchCours } from "../utils/lib/redux";
 
-let  firsteSession = SESSION[0]
+
 let Calendar = ()=>{
     let dispatch = useDispatch()
     useEffect(()=>{   
@@ -42,7 +42,9 @@ let Head = ()=>{
     const TotalTab = useSelector(state=>{
       return state.total
     })
-
+    const firsteSession = useSelector(state=>{
+      return state.creneaux
+   })
     TotalTab.forEach(cour=>{
         totalPrix += cour.prix
     })
