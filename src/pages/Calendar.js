@@ -44,12 +44,17 @@ let Head = ()=>{
     })
     const firsteSession = useSelector(state=>{
       return state.creneaux
-   })
+    })
+
+    const findCourStatus = useSelector(state=>{
+      return state.status.findCourStatus
+    })
+
     TotalTab.forEach(cour=>{
         totalPrix += cour.prix
     })
-
     
+    let spiner = (<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>)
 
   return(
     <>
@@ -57,9 +62,22 @@ let Head = ()=>{
               <h1 className="big-title" >CALENDRIER</h1>
               <hr className="separate"/>
               <ul className="header">
-                    <li>SESSION {firsteSession.sessionMois} {firsteSession.sessionAnnee} </li>
+                { 
+                  findCourStatus==="succeeded"?(<>
+                    <li>SESSION {firsteSession.sessionMois} {firsteSession.sessionAnnee}  </li>
                     <li>{firsteSession.dateDebut} - {firsteSession.dateFin}</li>
                     <li> <span>total:{totalPrix}</span> <button className="btn-a">s'inscrire</button></li>
+                  </>):""
+                }
+
+                {
+                   findCourStatus==="loading"?(
+                    spiner
+                   ):"" 
+                }
+
+               
+                    
               </ul>
       </header>
     </>
